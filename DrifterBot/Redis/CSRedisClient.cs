@@ -15,6 +15,8 @@ namespace DrifterBot.Redis
 			this.client = new CSRedis.RedisClient(host);
 		}
 
+		public async Task<string> SetDatabase(int index) => await client.SelectAsync(index);
+
 		public async Task<T> HasGetAsync<T>(string key) where T : class => await client.HGetAllAsync<T>(key);
 		public async Task<string> HashSetAsync<T>(string key, T obj) where T : class => await client.HMSetAsync<T>(key, obj);
 

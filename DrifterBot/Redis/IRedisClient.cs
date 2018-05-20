@@ -10,6 +10,8 @@ namespace DrifterBot.Redis
 	{
 		Task Initialize();
 
+		Task<string> SetDatabase(int index);
+
 		Task<string> HashSetAsync<T>(string key, T obj) where T : class;
 		Task<T> HasGetAsync<T>(string key) where T : class;
 

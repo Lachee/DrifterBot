@@ -38,6 +38,8 @@ namespace DrifterBot
 			_instance = this;
 			this._discord = client;
 			this.redis = new CSRedisClient("localhost");
+			this.redis.SetDatabase(1).Wait();
+
 			this._rolemap = new RoleMap(this.redis);
 
 			_interactivity = Discord.UseInteractivity(new InteractivityConfiguration() { });
