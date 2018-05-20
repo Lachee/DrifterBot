@@ -51,14 +51,21 @@ namespace DrifterBot.Commands
 			if (!await AllowedExecution(ctx))
 				return;
 
+			int count = 0;
+
 			//List off all the servers
 			StringBuilder servers = new StringBuilder();
 			foreach(var g in ctx.Client.Guilds)
 			{
-				servers.AppendLine(g.Value.Name);
+				servers
+					.Append(++count).Append(": ")
+					.Append("(").Append(g.Key).Append(") ")
+					.Append(g.Value.Name)
+					.Append("\n");
+
 			}
 
-			await ctx.RespondAsync(embed: new ResponseBuilder(ctx).WithDescription("```" + servers.ToString() + "```"));
+			await ctx.RespondAsync(embed: new ResponseBuilder(ctx).WithDescription("```" + servers.ToString() + "``` **" + count + "** servers listed"));
 		}
 
 
