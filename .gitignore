@@ -20,11 +20,8 @@ bld/
 [Oo]bj/
 [Ll]og/
 
-
 *.key
 
-# Not the release folder
-![Rr]elease
 
 # Visual Studio 2015 cache/options directory
 .vs/
@@ -305,3 +302,7 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+![Bb]in/
+[Bb]in/[Dd]ebug/
+![Bb]in/[Rr]elease/
